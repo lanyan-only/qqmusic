@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="index.css">
+	<script src="index.js"></script>
+</head>
+<body>
+	<audio src="02.mp3"controls="true"id="audio"></audio>
+	<!-- <div id="qiege"></div>
+	<div id="play"></div>
+	<div id="vol"><span id="vol-position"></span></div>
+	<div id="mute"></div>
+	<div id="state">
+		<span id="state-position"></span>
+		<div id="tips">0:03</div>
+	</div> -->
+
+
+<a href="http://y.qq.com/y/static/s_search/help.html" class="hide" accesskey="0" target="contentFrame">阅读无障碍使用帮助文档，请在这里敲击回车键进入，或者按快捷键Alt加0进入
+</a>
+<a href="http://y.qq.com/y/static/s_search/search.html" class="hide" accesskey="1" target="contentFrame">用读屏软件的朋友，在这里敲击回车键进入，或者按快捷键Alt加1进入
+</a>
+<div class="frame_top" role="banner" id="js_frame_top">
+	<div class="header_top">
+        <div class="navlist">
+            <ul>             
+                <li class="mod_user" id="top_info"><p class="top_info unlogined">您还未登录，<a href="javascript:;" onclick="g_user.openLoginPage();return false;">马上登录</a></p></li>
+                <li class="nav_musicvip" id="musicvip"><span class="line">&nbsp;</span> <span class="musicvip_text"><a title="绿钻" href="http://vip.music.qq.com" target="_blank"><img src="http://i.gtimg.cn/music/icon/v1/pc/vip.png?max_age=2592000" alt="绿钻"><span>绿钻</span></a></span></li>
+		<li class="nav_musicbag"><span class="line">&nbsp;</span> <span class="musicbag_text"><a href="http://y.qq.com/topic/suixiangbao/index.html" target="_blank"><img src="http://imgcache.gtimg.cn/music/icon/v1/pc/sui.png?max_age=2592000" alt="付费音乐包"><span>付费音乐包</span></a></span><a href="javascript:;" class="btn_open_musicbag" id="musicbag" style="display:none;"></a></li>
+                <li class="nav_software"><span class="line">&nbsp;</span><a href="http://kg.qq.com/?pgv_ref=qqmusic.y.topmenu" target="_blank" title="全民K歌"><span>全民K歌</span></a></li>
+                <li class="nav_software"><a href="http://y.qq.com/yanchu/?pgv_ref=qqmusic.y.topmenu" target="_blank" title="QQ演出"><span>QQ演出</span></a></li>             
+                <li class="nav_qplay"><a href="http://y.qq.com/y/static/down/qplay.html?pgv_ref=qqmusic.y.topmenu" target="_blank" title="QPlay"><span>QPlay</span></a></li>
+            </ul>
+        </div>
+    </div>
+	<div class="main_top" id="divtopmenu">
+		<h1 class="frame_logo"><img class="img_logo" src="http://imgcache.gtimg.cn/mediastyle/musicprotal/img/frame_logo_min.png?max_age=2592000" alt="QQ音乐"><a href="http://y.qq.com/" onclick="top.pgvClickStat('logo.qqmusic');" class="logo" title="QQ音乐-中国最新最全免费正版高品质音乐平台！">QQ音乐</a></h1>
+		<div class="frame_search">
+			<a href="http://y.qq.com/y/static/s_search/search.html" class="hide" accesskey="s" target="contentFrame">需要搜索的朋友，在这里敲击回车键进入，或者按快捷键Alt加s进入</a>
+			<input type="text" value="找到好音乐" class="search_text" id="keyword" onfocus="if(this.value=='找到好音乐'){this.value='';};MUSIC.css.addClassName(this.parentNode, 'search_focus');MUSIC.widget.intellMatch.set(this.value);" onblur="if(this.value==''){this.value='找到好音乐';};MUSIC.css.removeClassName(this.parentNode, 'search_focus');MUSIC.widget.intellMatch.clear();" onkeydown="var event=MUSIC.event.getEvent();if(event.keyCode==13){if (window.frames['contentFrame'].location.href.indexOf('y.qq.com/y/static/s_search/')!=-1) { MUSIC.dom.get('contentFrame').src = 'http://y.qq.com/y/static/s_search/search.html?type=1';setTimeout(function(){top.frames['contentFrame'].g_simpleSearchChn.submit(MUSIC.dom.get('keyword').value.trim());}, 100); }	else {MUSIC.widget.intellMatch.search();}}" x-webkit-speech="" speech="" lang="zh-CN" autocomplete="off"><input type="button" value="搜索" onclick="if (window.frames['contentFrame'].location.href.indexOf('y.qq.com/y/static/s_search/')!=-1) { MUSIC.dom.get('contentFrame').src = 'http://y.qq.com/y/static/s_search/search.html?type=1';setTimeout(function(){top.frames['contentFrame'].g_simpleSearchChn.submit(MUSIC.dom.get('keyword').value.trim());}, 100); }	else {var event=MUSIC.event.getEvent();if(event.keyCode==13){}else MUSIC.widget.intellMatch.curIndex=-1;MUSIC.widget.intellMatch.search();}" id="search_form" class="go_search">
+			<div class="search_result" id="keywords_list">
+				<ul>
+				</ul>
+			</div>
+		</div>
+		<div class="navigation">
+			<ul id="divnavigation">
+				<li class="nav_home"><a href="about:blank" onclick="showIndex(true);" target="contentFrame" class="nonce"><span>音乐馆</span></a></li>
+				<li class="nav_mv"><a href="http://i.y.qq.com/v8/fcg-bin/fcg_v8_mvout4web.fcg?format=html&amp;tpl=tpl&amp;pgv_ref=qqmusic.y.topmenu" target="contentFrame"><span>MV</span></a></li>
+				<li class="nav_mymusic"><a href="/y/static/mymusic/mymusic_index.html?pgv_ref=qqmusic.y.topmenu" target="contentFrame"><span>我的音乐</span></a></li>
+				<li class="nav_software"><a href="http://y.qq.com/download/index.html?pgv_ref=qqmusic.y.topmenu" target="_blank"><span>下载客户端</span></a></li>			
+			</ul>
+		</div>
+		<div class="sub_navigation" id="divsubmenu">
+			<!--音乐馆-->
+			<p class="sub_lib" style="display: block;">
+			<a href="about:blank" onclick="showIndex(true);" target="contentFrame">首页</a>|
+			<a href="http://i.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg?page=index&amp;format=html&amp;tpl=20&amp;pgv_ref=qqmusic.y.topmenu" target="contentFrame">排行榜</a>|
+			<a href="/y/static/taoge/taoge_list.html?pgv_ref=qqmusic.y.topmenu" target="contentFrame">歌单广场</a>|
+			<a href="/y/static/radio/index.html?pgv_ref=qqmusic.y.topmenu" target="contentFrame">电台</a>|
+			<a href="/y/static/singer/index/all_hot_1.html?pgv_ref=qqmusic.y.topmenu" target="contentFrame" class="nonce">歌手</a>|
+			<a href="y/static/shoufa/index.html?pgv_ref=qqmusic.y.topmenu" target="contentFrame">独家首发</a>|
+			<a href="/y/static/album/index.html?pgv_ref=qqmusic.y.topmenu" target="contentFrame">专辑</a>
+			</p>
+			<p class="sub_mv" style="display: none;"><a href="http://i.y.qq.com/v8/fcg-bin/fcg_v8_mvout4web.fcg?format=html&amp;tpl=tpl&amp;pgv_ref=qqmusic.y.topmenu" target="contentFrame">MV推荐</a>|<a href="/y/static/mv/mv_toplist.html?pgv_ref=qqmusic.y.topmenu" target="contentFrame">MV排行榜</a>|<a href="/y/static/mv/lib.html?pgv_ref=qqmusic.y.topmenu" target="contentFrame">MV库</a>|<a href="/y/static/mv/live/1.html?pgv_ref=qqmusic.y.topmenu" target="contentFrame">音乐现场</a>|<a href="/y/static/mv/topic/1.html?pgv_ref=qqmusic.y.topmenu" target="contentFrame">MV专题</a>|<a href="/y/static/mv/mv_play.html?cid=brh8ox942pb5wwk&amp;pgv_ref=qqmusic.y.topmenu" target="target">巅峰榜盛典</a></p>
+			<!--我的音乐-->
+			<p class="sub_mymusic" style="display: none;"><a href="/y/static/mymusic/mymusic_index.html?pgv_ref=qqmusic.y.topmenu" target="contentFrame">主页</a>|<a href="/y/static/mymusic/mymusic_albumlist.html?pgv_ref=qqmusic.y.topmenu" target="contentFrame">歌单</a>|<a href="/y/static/mymusic/mymusic_mvlist.html?pgv_ref=qqmusic.y.topmenu" target="contentFrame">MV收藏</a>|<a href="/y/static/mymusic/mymusic_follow_listen.html?type=mylisten&amp;pgv_ref=qqmusic.y.topmenu" target="contentFrame">听众</a>|<a href="/y/static/mymusic/mymusic_follow_listen.html?type=singer&amp;pgv_ref=qqmusic.y.topmenu" target="contentFrame">收听</a></p>
+			<!--Qplay-->
+			<p class="sub_qplay" style="display: none;"><a href="http://y.qq.com/y/static/down/qplay.html?pgv_ref=qqmusic.y.topmenu" target="_blank">功能介绍</a>|<a href="/y/static/qplay/qplay_coop.html?pgv_ref=qqmusic.y.topmenu" target="contentFrame" class="nonce">合作厂商</a></p>
+			<!--下载客户端-->
+			<!--p class="sub_software"><a href="/y/static/down/index.html?pgv_ref=qqmusic.y.topmenu" target="contentFrame">首页</a>|<a href="/y/static/down/detail.html?pgv_ref=qqmusic.y.topmenu" target="contentFrame">下载</a></p-->
+		</div>
+	</div>
+</div>
+<!-- qq音乐播放界面 s-->
+	<div class="m_player mini_version" id="divplayer" role="application" style="z-index:100000;
+	left:0px;
+	">
+	<div class="m_player_dock" id="divsongframe">
+		<div class="music_info" id="divsonginfo">
+			<a href="javascript:;" onclick="window.frames['contentFrame'].location='http://i.y.qq.com/v8/fcg-bin/fcg_v8_album_detail_cp.fcg?tpl=20&amp;
+			albummid=003Ow85E3pnoqi'" target="contentFrame" class="album_pic" title="十二新作">
+			<img src="./img/cover_mine_130.jpg" alt="十二新作" onerror="this.src='./img/cover_mine_130.jpg'">
+		</a>
+		<div class="music_info_main">
+			<p class="music_name" title="红尘客栈">
+				<span>
+					听我想听的歌
+				</span>
+				<a onclick="g_topPlayer.singleFm.open();
+				" href="javascript:;" class="icon_radio">
+				
+			</a>
+		</p>
+		<p class="singer_name" title="周杰伦">
+			QQ音乐
+		</p>
+		<p class="play_date" id="ptime">
+			
+		</p>
+		<p class="music_op" style="display:;
+		">
+		<strong class="btn_like" title="喜欢" onclick="g_topPlayer.like(g_topPlayer.getCurSongInfo(),this);
+		MUSIC.event.cancelBubble();
+		" name="myfav_003xv4w313tZHV" mid="003xv4w313tZHV">
+		<span>
+			我喜欢
+		</span>
+	</strong>
+	<strong class="btn_share" title="分享" onclick="g_topPlayer.share(g_topPlayer.getCurSongInfo(),this);
+	MUSIC.event.cancelBubble();
+	">
+	<span>
+		分享
+	</span>
+</strong>
+<strong class="btn_kge" onmouseover="this.className='btn_kge btn_kge_hover';
+this.style.zIndex='100';
+" onmouseout="this.className='btn_kge';
+this.style.zIndex='';
+" id="btnkge">
+<span>
+	唱这首歌
+</span>
+<span class="kge_QRcode">
+	<em>
+		<img src="./img/fcg_get_2dcode.png" alt="全民K歌二维码">
+	</em>
+	<em>
+		手机扫描二维码，唱这首歌
+	</em>
+	<i class="kge_QRcode_logo">
+	</i>
+	<i class="kge_QRcode_arrow">
+	</i>
+</span>
+</strong>
+</p>
+</div>
+</div>
+<div class="bar_op">
+	<strong title="上一首( [ )" class="prev_bt" >
+		<span>
+			上一首
+		</span>
+	</strong>
+	<strong title="播放(P)" class="play_bt" id="btnplay">
+		<span>
+			播放
+		</span>
+
+	</strong>
+	<strong title="下一首( ] )" class="next_bt">
+		<span>
+			下一首
+		</span>
+	</strong>
+	<strong title="列表循环" class="cycle_bt" id="btnPlayway" >
+		<span>
+			列表循环
+		</span>
+	</strong>
+	<p class="volume" title="音量调节">
+		<span class="volume_icon" id="spanmute" title="点击设为静音(M)">
+		</span>
+		<span class="volume_regulate" id="spanvolume">
+			<span class="volume_bar" style="width:75%;
+			" id="spanvolumebar">
+		</span>
+		<span class="volume_op" style="left:75%;
+		" id="spanvolumeop">
+	</span>
+</span>
+</p>
+</div>
+<p class="playbar_cp_select" id="divselect" style="display: none;">
+	<strong title="单曲循环" class="cycle_single_bt"onclick="setbofangmoshi(1)"><span>单曲循环</span></strong>
+	<strong title="列表循环" class="cycle_bt" onclick="setbofangmoshi(3)"><span>列表循环</span></strong>
+	<strong title="顺序播放" class="ordered_bt"onclick="setbofangmoshi(2)"><span>顺序播放</span></strong>
+	<strong title="随机播放" class="unordered_bt"onclick="setbofangmoshi(4)"><span>随机播放</span>
+	</strong>
+</p>
+<p class="player_bar">
+	<span class="player_bg_bar" id="spanplayer_bgbar">
+	</span>
+	<span class="download_bar" id="downloadbar" style="width:52%;
+	">
+</span>
+<span class="play_current_bar" style="width:0%;
+" id="spanplaybar">
+</span>
+<span class="progress_op" style="left:0%;
+" id="spanprogress_op">
+</span>
+</p>
+<div class="time_show" style="left:403px;
+bottom:8px;
+display:none;
+">
+<p id="time_show">
+	03:35
+</p>
+<span class="icon_arrow_foot">
+	<i class="foot_border">
+	</i>
+	<i class="foot_arrow">
+	</i>
+</span>
+</div>
+</div>
+<span class="active_tip" id="spanaddtips" style="display:none;
+top:-30px;
+">
+</span>
+<span title="展开播放列表" class="open_list" id="spansongnum1" style="display:block;
+">
+<span>
+	8
+</span>
+</span>
+<span title="显示歌词(L)" class="btn_lyrics_disabled" id="btnlrc">
+	歌词(L)
+</span>
+<button type="button" class="folded_bt" title="点击收起" id="btnfold">
+	<span>
+		点击收起/展开
+	</span>
+</button>
+<!--play list-->
+<div class="play_list_frame" id="divplayframe" style="display:block;
+opacity:1;
+">
+<div class="play_list_title">
+	<!-- 单曲FM修改 -->
+	<ul id="tab_container" style="width:270px;
+	">
+	<li id="playlist_tab" class="current">
+		<a href="javascript:;" title="播放列表">
+			播放列表
+		</a>
+		<i>
+		</i>
+	</li>
+	<li id="fm_tab" style="display:block" class="">
+		<a href="javascript:;" title="单曲电台列表">
+			单曲电台列表
+		</a>
+		<i>
+		</i>
+	</li>
+</ul>
+<span id="clear_list" class="clear_list" onclick="g_topPlayer.clearList();
+" style="display:block;
+">
+清空列表
+</span>
+<strong title="收起播放列表" class="close_list" id="btnclose">
+</strong>
+</div>
+<div class="play_list" id="divlistmain">
+	<!--列表为空提示_E-->
+	<div class="play_list_main" id="divplaylist" style="display:block;
+	left:0px;
+	top:0px;
+	">
+	<!-- 播放列表_S-->
+	<div class="single_list" id="divsonglist" dirid="0">
+		<ul>
+			<li mid="j0" class="play_current">
+				<strong class="music_name" title="红尘客栈">
+					红尘客栈
+				</strong>
+				<strong class="singer_name" title="周杰伦">
+					周杰伦
+				</strong>
+				<strong class="play_time">
+					04:34
+				</strong>
+				<div class="list_cp">
+					<strong class="btn_like" title="喜欢" name="myfav_003xv4w313tZHV" mid="003xv4w313tZHV">
+						<span>
+							我喜欢
+						</span>
+					</strong>
+					<strong class="btn_share" title="分享">
+						<span>
+							分享
+						</span>
+					</strong>
+					<strong class="btn_fav" title="收藏到歌单">
+						<span>
+							收藏
+						</span>
+					</strong>
+					<strong class="btn_del" title="从列表中删除">
+						<span>
+							删除
+						</span>
+					</strong>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div id="divalbumlist" style="display:none;
+	">
+</div>
+</div>
+<!-- qq音乐播放界面 e-->
+<!--单曲电台列表_S-->
+
+<!--单曲电台列表_E-->
+</div>
+</div>
+</div>
+</body>
+</html>
